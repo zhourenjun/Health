@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 圆形进度条 -->
+    <declare-styleable name="MyCircleProgressView">
+        <attr name="antiAlias" format="boolean"/>
+        <attr name="mCirWidth" format="dimension"/>
+        <attr name="mCirColor" format="color|integer"/>
+        <attr name="mBgCirWidth" format="dimension"/>
+        <attr name="mBgCirColor" format="color|integer"/>
+        <attr name="animTime" format="integer"/>
+        <attr name="value" format="float"/>
+        <attr name="maxValue" format="float"/>
+        <attr name="startAngle" format="float"/>
+        <attr name="sweepAngle" format="float"/>
+        <attr name="valueSize" format="dimension"/>
+        <attr name="valueColor" format="color|integer"/>
+        <attr name="unit" format="string"/>
+        <attr name="unitSize" format="dimension"/>
+        <attr name="unitColor" format="color|integer"/>
+        <attr name="hint" format="string"/>
+        <attr name="hintSize" format="dimension"/>
+        <attr name="hintColor" format="color|integer"/>
+        <attr name="gradient" format="integer"/>
+        <attr name="isGradient" format="boolean"/>
+        <attr name="smallCirEnable" format="boolean"/>
+        <attr name="smallCirColor" format="color|integer"/>
+        <attr name="smallCirWidth" format="dimension"/>
+        <attr name="shadowSize" format="float"/>
+        <attr name="shadowColor" format="color|integer"/>
+        <attr name="shadowShow" format="boolean"/>
+        <attr name="digit" format="integer"/>
+        <attr name="isAnim" format="boolean"/>
+    </declare-styleable>
+
+
+
+    <!-- 波纹进度条 -->
+    <declare-styleable name="WaveProgressView">
+        <attr name="progress_max" format="integer" />
+        <attr name="progress" format="integer" />
+        <attr name="speed" format="float" />
+        <attr name="wave_width" format="float" />
+        <attr name="wave_height" format="float" />
+        <attr name="wave_color" format="color" />
+        <attr name="wave_bg_color" format="color" />
+        <attr name="stroke_color" format="color" />
+        <attr name="main_text" format="string" />
+        <attr name="main_text_color" format="color" />
+        <attr name="main_text_size" format="dimension" />
+        <attr name="hint_text" format="string" />
+        <attr name="hint_color" format="color" />
+        <attr name="hint_size" format="dimension" />
+        <attr name="text_space" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RecyclerViewFastScroller">
+        <attr name="trackDrawable" format="reference"/>
+        <attr name="handleDrawable" format="reference"/>
+        <attr name="popupDrawable" format="reference"/>
+        <attr name="popupTextStyle" format="reference"/>
+        <attr name="fastScrollEnabled" format="boolean"/>
+        <attr name="popupPosition" format="enum">
+            <enum name="beforeTrack" value="0"/>
+            <enum name="afterTrack" value="1"/>
+        </attr>
+        <attr name="addLastItemPadding" format="boolean" />
+        <attr name="fastScrollDirection" format="enum">
+            <enum name="vertical" value="0"/>
+            <enum name="horizontal" value="1"/>
+        </attr>
+        <attr name="handleWidth" format="dimension"/>
+        <attr name="handleHeight" format="dimension"/>
+        <attr name="handleHasFixedSize" format="boolean"/>
+        <attr name="supportSwipeToRefresh" format="boolean"/>
+    </declare-styleable>
+</resources>

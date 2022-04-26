@@ -1,0 +1,48 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_global"
+    app:startDestination="@id/exerciseFragment">
+
+    <keep_state_fragment
+        android:id="@+id/exerciseFragment"
+        android:name="com.lepu.health.ui.ExerciseFragment"
+        tools:layout="@layout/fragment_exercise" />
+
+    <keep_state_fragment
+        android:id="@+id/aMapRunningFragment"
+        android:name="com.lepu.health.ui.AMapRunningFragment"
+        tools:layout="@layout/fragment_amap_running" />
+
+    <keep_state_fragment
+        android:id="@+id/googleRunningFragment"
+        android:name="com.lepu.health.ui.GoogleRunningFragment"
+        tools:layout="@layout/fragment_google_running" />
+
+    <keep_state_fragment
+        android:id="@+id/exerciseSettingFragment"
+        android:name="com.lepu.health.ui.ExerciseSettingFragment"
+        tools:layout="@layout/fragment_exercise_setting" />
+
+    <keep_state_fragment
+        android:id="@+id/exerciseListFragment"
+        android:name="com.lepu.health.ui.ExerciseListFragment"
+        tools:layout="@layout/fragment_exercise_list" />
+
+    <keep_state_fragment
+        android:id="@+id/exerciseRouteFragment"
+        android:name="com.lepu.health.ui.ExerciseRouteFragment"
+        tools:layout="@layout/fragment_exercise_route" />
+
+    <keep_state_fragment
+        android:id="@+id/aMapScreenRecorderFragment"
+        android:name="com.lepu.health.ui.AMapScreenRecorderFragment"
+        tools:layout="@layout/fragment_amap_sr" />
+
+    <keep_state_fragment
+        android:id="@+id/googleMapScreenRecorderFragment"
+        android:name="com.lepu.health.ui.GoogleMapScreenRecorderFragment"
+        tools:layout="@layout/fragment_google_sr" />
+
+
+</navigation>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingBottom="@dimen/dp_10">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_8"
+        android:background="@color/f5f5f5_1e1e1e"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="@dimen/dp_2"
+        android:layout_height="@dimen/dp_22"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@color/orange"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_16"
+        android:textColor="@color/_99000000_888888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        tools:text="2000年9月" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icExpand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle"
+        app:srcCompat="@drawable/ic_baseline_expand_less_24" />
+
+
+    <TextView
+        android:id="@+id/tvWalking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="@string/walking"
+        android:textColor="@color/_99000000_888888"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <com.lepu.health.widget.NumTextView
+        android:id="@+id/tvWalkingValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1.07"
+        android:textColor="@color/black_white"
+        android:textSize="@dimen/sp_28"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/tvWalking"
+        app:layout_constraintStart_toStartOf="@id/tvWalking"
+        app:layout_constraintTop_toBottomOf="@id/tvWalking" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="1px"
+        android:layout_height="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_40"
+        android:background="@color/cecece_282828"
+        app:layout_constraintBottom_toBottomOf="@id/tvWalkingValue"
+        app:layout_constraintEnd_toStartOf="@id/tvWalking"
+        app:layout_constraintTop_toTopOf="@id/tvWalking" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="1px"
+        android:layout_height="@dimen/dp_20"
+        android:layout_marginStart="@dimen/dp_40"
+        android:background="@color/cecece_282828"
+        app:layout_constraintBottom_toBottomOf="@id/tvWalkingValue"
+        app:layout_constraintStart_toEndOf="@id/tvWalking"
+        app:layout_constraintTop_toTopOf="@id/tvWalking" />
+
+
+    <TextView
+        android:id="@+id/tvRunning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/running"
+        android:textColor="@color/_99000000_888888"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintEnd_toEndOf="@id/view1"
+        app:layout_constraintStart_toStartOf="@id/tvTitle"
+        app:layout_constraintTop_toTopOf="@id/tvWalking" />
+
+    <com.lepu.health.widget.NumTextView
+        android:id="@+id/tvRunningValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="0.07"
+        android:textColor="@color/black_white"
+        android:textSize="@dimen/sp_28"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/tvRunning"
+        app:layout_constraintStart_toStartOf="@id/tvRunning"
+        app:layout_constraintTop_toBottomOf="@id/tvRunning" />
+
+
+    <TextView
+        android:id="@+id/tvCycling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cycling"
+        android:textColor="@color/_99000000_888888"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/view2"
+        app:layout_constraintTop_toTopOf="@id/tvWalking" />
+
+
+    <com.lepu.health.widget.NumTextView
+        android:id="@+id/tvCyclingValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="0.00"
+        android:textColor="@color/black_white"
+        android:textSize="@dimen/sp_28"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/tvCycling"
+        app:layout_constraintStart_toStartOf="@id/tvCycling"
+        app:layout_constraintTop_toBottomOf="@id/tvCycling" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

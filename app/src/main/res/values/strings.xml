@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">Health</string>
+    <string name="hint">Core fundamental are based on these permissions</string>
+    <string name="permission">You need to allow necessary permissions in Settings manually</string>
+    <string name="sure">Sure</string>
+    <string name="title_exercise">Exercise</string>
+    <string name="min">min</string>
+
+    <string name="goals">Goals</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="cancel">Cancel</string>
+    <string name="searching_for_gps">Searching for GPS…</string>
+    <string name="pace">Pace</string>
+    <string name="duration">Duration</string>
+    <string name="calories">Calories</string>
+    <string name="distance">Distance</string>
+    <string name="slide_to_unlock">Slide to unlock</string>
+
+
+    <string name="kcal">kcal</string>
+    <string name="km">km</string>
+    <string name="bpm">bpm</string>
+    <string name="hour">h</string>
+
+    <string-array name="actionArray">
+        <item>All</item>
+        <item>Walk</item>
+        <item>Run Out</item>
+        <item>Run In</item>
+        <item>Ride</item>
+        <item>Ride Indoor</item>
+        <item>OnFoot</item>
+        <item>Mountaineering</item>
+        <item>Badminton</item>
+        <item>Football</item>
+        <item>Basketball</item>
+        <item>Tennis</item>
+        <item>Dancing</item>
+        <item>Yoga</item>
+        <item>FreeTraining</item>
+        <item>TrailRun</item>
+        <item>Swimming</item>
+        <item>WalkIn</item>
+        <item>Rower</item>
+        <item>Elliptical</item>
+        <item>Open water</item>
+    </string-array>
+
+    <string name="walking">Walking (km)</string>
+    <string name="running">Running (km)</string>
+    <string name="cycling">Cycling (km)</string>
+    <string name="avg_pace">Avg pace</string>
+    <string name="km2">/km</string>
+    <string name="steps_min">steps/min</string>
+    <string name="time3">Time</string>
+    <string name="slowest">Slowest</string>
+    <string name="fastest">Fastest</string>
+    <string name="saved_to_album">Saved to album</string>
+    <string name="share">Share</string>
+    <string name="no_more">No more</string>
+    <string name="mile">mile</string>
+    <string name="mile2">/mile</string>
+    <string name="running2">Running (mile)</string>
+    <string name="walking2">Walking (mile)</string>
+    <string name="cycling2">Cycling (mile)</string>
+    <string name="outdoor_run">Outdoor run</string>
+    <string name="walk">Walk</string>
+    <string name="cycle">Cycle</string>
+    <string name="sports_settings">Sports settings</string>
+    <string name="audio_reminders">Audio reminders</string>
+    <string name="reminders_interval">Reminders interval</string>
+    <string name="fitness_goal">Fitness goal</string>
+    <string name="none">None</string>
+    <string name="custom">Custom</string>
+    <string name="half_marathon">Half marathon</string>
+    <string name="marathon">Marathon</string>
+    <string name="distance_km_goal_hint">Enter between 1–100km</string>
+    <string name="time_goal_hint">You can only input whole numbers(10–1440 min).</string>
+    <string name="calories_goal_hint">You can only input whole numbers(100–5000 kcal).</string>
+    <string name="by_distance">By distance</string>
+    <string name="by_time">By time</string>
+    <string name="GPS_level_poor">Poor GPS</string>
+    <string name="GPS_level_acceptable">Acceptable GPS</string>
+    <string name="GPS_level_good">Good GPS</string>
+    <string name="exercise_hint">You haven\'t covered enough ground to create a record. End workout?</string>
+    <string name="continue_">Continue</string>
+    <string name="end">End</string>
+    <string name="running_back_hint">Touch the Pause icon to pause the workout, then touch and hold the Stop button to end the workout.</string>
+    <string name="run_pause_back_hint">Touch and hold the end button to exit.</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="start">Start</string>
+    <string name="dynamic_tracking">Dynamic tracking</string>
+    <string name="save_and_share_video">Save and share video</string>
+    <string name="screen_recording">Screen recording</string>
+    <string name="distance_mile_goal_hint">Enter between 1–100 mile</string>
+    <string name="input_out_range">Input value is out of range</string>
+
+    <string name="europe">Europe</string>
+    <string name="all">All</string>
+    <string name="no_data">No data</string>
+</resources>

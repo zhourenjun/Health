@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_radius_8dp">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="@string/fitness_goal"
+        android:textColor="@color/black_white"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.lepu.health.widget.TextPicker
+        android:id="@+id/p1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/ffffff_1e1e1e"
+        app:itemTextSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="@id/tv_cancel"
+        app:layout_constraintStart_toStartOf="@id/tv_cancel"
+        app:layout_constraintTop_toBottomOf="@id/tv"
+        app:selectedTextColor="@color/orange"
+        app:itemTextColor="@color/_99000000_888888"
+        app:wheelCurtainBorder="false"
+        app:wheelCurtainColor="@color/ffffff_1e1e1e" />
+
+    <com.lepu.health.widget.TextPicker
+        android:id="@+id/p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/ffffff_1e1e1e"
+        app:itemTextSize="@dimen/sp_14"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/tv_sure"
+        app:layout_constraintStart_toStartOf="@id/tv_sure"
+        app:layout_constraintTop_toBottomOf="@id/tv"
+        app:selectedTextColor="@color/orange"
+        app:itemTextColor="@color/_99000000_888888"
+        app:wheelCurtainBorder="false"
+        app:wheelCurtainColor="@color/ffffff_1e1e1e" />
+
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_48"
+        android:background="@color/cecece_282828"
+        app:layout_constraintBottom_toBottomOf="@id/p1"
+        app:layout_constraintTop_toTopOf="@id/p1" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_48"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:background="@color/cecece_282828"
+        app:layout_constraintBottom_toBottomOf="@id/p1"
+        app:layout_constraintTop_toTopOf="@id/p1" />
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="1px"
+        android:layout_height="@dimen/dp_22"
+        android:background="@color/cecece_282828"
+        app:layout_constraintBottom_toBottomOf="@id/tv_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_cancel" />
+
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/dp_20"
+        android:text="@string/cancel"
+        android:textColor="@color/black_white"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toStartOf="@id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/p1" />
+
+    <TextView
+        android:id="@+id/tv_sure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/dp_20"
+        android:text="@string/sure"
+        android:textColor="@color/black_white"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view"
+        app:layout_constraintTop_toBottomOf="@id/p1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

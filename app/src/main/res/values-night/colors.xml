@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_primary">#000000</color>
+    <color name="color_primary_variant">#1b1b1b</color>
+    <color name="color_secondary">#000000</color>
+    <color name="color_secondary_variant">#000000</color>
+    <color name="color_background">#424242</color>
+    <color name="color_surface">#424242</color>
+    <color name="color_error">#ad1457</color>
+    <color name="color_on_primary">#ffffff</color>
+    <color name="color_on_secondary">#000000</color>
+    <color name="color_on_background">#757575</color>
+    <color name="color_on_surface">#ffffff</color>
+
+
+
+
+    <color name="green">#00d656</color>
+    <color name="translucent_white_60">#99000000</color>
+    <color name="translucent_white_1A">#1A000000</color>
+    <color name="translucent_black_cc">#ccffffff</color>
+    <color name="translucent_black_40">#40ffffff</color>
+    <color name="secondary_666666_808080">#808080</color>
+    <color name="a9a9a9_191919">#a9a9a9</color>
+    <color name="f2f2f2_1d1d1d">#1d1d1d</color>
+    <color name="e6e6e6_2e2e2e">#2e2e2e</color>
+    <color name="f7f7f7_191919">#191919</color>
+    <color name="cecece_282828">#282828</color>
+    <color name="ffffff_1c293c">#801c293c</color>
+    <color name="fc355c_fc3159">#fc3159</color>
+    <color name="feba26_f3b42b">#f3b42b</color>
+
+
+    <color name="orange">#ff8848</color>
+    <color name="black_white">#ffffff</color>
+    <color name="ffffff_1e1e1e">#1e1e1e</color>
+    <color name="ffffff_282828">#282828</color>
+    <color name="_99000000_888888">#888888</color>
+    <color name="_33000000_ff888888">#33888888</color>
+    <color name="e9e9e9_3e3e3e">#3e3e3e</color>
+    <color name="f5f5f5_121212">#121212</color>
+    <color name="f5f5f5_1e1e1e">#1e1e1e</color>
+    <color name="_00000000_ffffff">#ffffff</color>
+    <color name="_99f5f5f5_99121212">#99121212</color>
+</resources>

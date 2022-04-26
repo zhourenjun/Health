@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">Health</string>
+    <string name="hint">核心基础基于这些权限</string>
+    <string name="permission">您需要手动在“设置”中允许必要的权限</string>
+    <string name="sure">确定</string>
+    <string name="title_exercise">运动</string>
+    <string name="min">分钟</string>
+
+
+    <string name="goals">目标</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="cancel">取消</string>
+    <string name="searching_for_gps">GPS搜索中…</string>
+    <string name="pace">配速</string>
+    <string name="duration">持续时间</string>
+    <string name="calories">卡路里</string>
+    <string name="distance">距离</string>
+    <string name="slide_to_unlock">滑动来解锁</string>
+    <string name="kcal">千卡</string>
+    <string name="km">公里</string>
+    <string name="bpm">次/分钟</string>
+    <string name="hour">小时</string>
+
+    <string-array name="actionArray">
+        <item>全部运动</item>
+        <item>健走</item>
+        <item>户外跑步</item>
+        <item>室内跑步</item>
+        <item>户外骑行</item>
+        <item>室内骑行</item>
+        <item>徒步</item>
+        <item>爬山</item>
+        <item>羽毛球</item>
+        <item>足球</item>
+        <item>篮球</item>
+        <item>网球</item>
+        <item>跳舞</item>
+        <item>瑜伽</item>
+        <item>自由训练</item>
+        <item>越野跑步</item>
+        <item>室内游泳</item>
+        <item>室内健走</item>
+        <item>划船机</item>
+        <item>椭圆机</item>
+        <item>开放水域</item>
+    </string-array>
+
+    <string name="walking">步行 (公里)</string>
+    <string name="running">跑步 (公里)</string>
+    <string name="cycling">骑行 (公里)</string>
+    <string name="avg_pace">平均配速</string>
+    <string name="km2">/公里</string>
+    <string name="steps_min">步/分钟</string>
+    <string name="time3">时间</string>
+    <string name="slowest">最慢</string>
+    <string name="fastest">最快</string>
+    <string name="saved_to_album">已保存到相册</string>
+    <string name="share">分享</string>
+    <string name="no_more">没有更多了</string>
+    <string name="mile">英里</string>
+    <string name="mile2">/英里</string>
+    <string name="running2">跑步 (英里)</string>
+    <string name="walking2">步行 (英里)</string>
+    <string name="cycling2">骑行 (英里)</string>
+    <string name="outdoor_run">户外跑步</string>
+    <string name="walk">步行</string>
+    <string name="cycle">骑行</string>
+    <string name="sports_settings">运动设置</string>
+    <string name="audio_reminders">语音播报</string>
+    <string name="reminders_interval">播报频率</string>
+    <string name="fitness_goal">运动目标</string>
+    <string name="none">无目标</string>
+    <string name="custom">自定义</string>
+    <string name="half_marathon">半马</string>
+    <string name="marathon">全马</string>
+    <string name="distance_km_goal_hint">可输入1–100公里</string>
+    <string name="time_goal_hint">只能输入整数(10–1440分钟).</string>
+    <string name="calories_goal_hint">只能输入整数(100–5000千卡).</string>
+    <string name="by_distance">按距离设置</string>
+    <string name="by_time">按时间设置</string>
+    <string name="GPS_level_poor">GPS信号弱</string>
+    <string name="GPS_level_acceptable">GPS信号一般</string>
+    <string name="GPS_level_good">GPS信号好</string>
+    <string name="exercise_hint">本次运动距离过短，将不会记录数据。是否结束？</string>
+    <string name="continue_">继续运动</string>
+    <string name="end">结束运动</string>
+    <string name="running_back_hint">触摸“暂停”图标以暂停锻炼，然后触摸并按住“停止”按钮以结束锻炼。</string>
+    <string name="run_pause_back_hint">触摸并按住结束按钮以退出。</string>
+    <string name="pause">暂停</string>
+    <string name="resume">恢复</string>
+    <string name="start">开始</string>
+    <string name="dynamic_tracking">动态轨迹</string>
+    <string name="save_and_share_video">保存并分享视频</string>
+    <string name="screen_recording">正在录屏</string>
+
+
+    <string name="distance_mile_goal_hint">可输入1–100英里</string>
+    <string name="input_out_range">输入值超出范围</string>
+    <string name="europe">欧洲</string>
+    <string name="all">全部运动</string>
+    <string name="no_data">无数据</string>
+</resources>

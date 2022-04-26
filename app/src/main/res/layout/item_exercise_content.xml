@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:background="@drawable/circle_background_filled_36dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvDistance"
+        app:srcCompat="@drawable/ic_basketball_white_24dp" />
+
+
+    <com.lepu.health.widget.NumTextView
+        android:id="@+id/tvDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:text="1.07"
+        android:textColor="@color/black_white"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintStart_toEndOf="@id/iv"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvDistance_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_4"
+        android:gravity="center_vertical"
+        android:text="@string/km"
+        android:textColor="@color/_99000000_888888"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvDistance"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toEndOf="@id/tvDistance"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivDevice"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_4"
+        app:layout_constraintBottom_toBottomOf="@id/tvDistance_unit"
+        app:layout_constraintStart_toEndOf="@id/tvDistance_unit"
+        app:layout_constraintTop_toTopOf="@id/tvDistance_unit"
+        app:srcCompat="@drawable/ic_watch_grey_16dp" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivTime"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_4"
+        android:tint="@color/secondary_666666_808080"
+        app:layout_constraintStart_toStartOf="@id/tvDistance"
+        app:layout_constraintTop_toBottomOf="@id/tvDistance"
+        app:srcCompat="@drawable/ic_time_white_24dp" />
+
+    <com.lepu.health.widget.NumTextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_6"
+        android:gravity="center_vertical"
+        android:text="00:17:49"
+        android:textColor="@color/orange_f28b40"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="@id/ivTime"
+        app:layout_constraintStart_toEndOf="@id/ivTime"
+        app:layout_constraintTop_toTopOf="@id/ivTime" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivPace"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_48"
+        android:tint="@color/secondary_666666_808080"
+        app:layout_constraintStart_toEndOf="@id/tvTime"
+        app:layout_constraintTop_toTopOf="@id/ivTime"
+        app:srcCompat="@drawable/ic_pace_green_24dp" />
+
+    <TextView
+        android:id="@+id/tvPace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_6"
+        android:gravity="center_vertical"
+        android:text="16'17''"
+        android:textColor="@color/orange_f28b40"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="@id/ivPace"
+        app:layout_constraintStart_toEndOf="@id/ivPace"
+        app:layout_constraintTop_toTopOf="@id/ivPace" />
+
+    <TextView
+        android:id="@+id/tvPace_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_4"
+        android:gravity="center_vertical"
+        android:text="@string/km2"
+        android:textColor="@color/_99000000_888888"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="@id/tvPace"
+        app:layout_constraintStart_toEndOf="@id/tvPace"
+        app:layout_constraintTop_toTopOf="@id/tvPace" />
+
+    <TextView
+        android:id="@+id/tvData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:drawablePadding="@dimen/dp_2"
+        android:gravity="center_vertical"
+        android:text="8/1"
+        android:textColor="@color/_99000000_888888"
+        android:textSize="@dimen/sp_12"
+        app:drawableEndCompat="@drawable/ic_right_grey_16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/cecece_282828"
+        app:layout_constraintEnd_toEndOf="@id/tvData"
+        app:layout_constraintStart_toStartOf="@id/ivTime"
+        app:layout_constraintTop_toBottomOf="@id/ivTime" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/_33000000_ff888888"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/translucent_white_1A"
+            app:layout_constraintBottom_toTopOf="@id/ctl"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ctl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_gradient3"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <com.lepu.health.widget.LastSpacingTextView
+                android:id="@+id/tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_56"
+                android:textColor="@color/color_on_secondary"
+                android:textSize="@dimen/sp_40"
+                android:textStyle="italic|bold"
+                android:paddingEnd="@dimen/dp_6"
+                android:paddingStart="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1.07" />
+
+            <TextView
+                android:id="@+id/tv_distance_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/km"
+                android:textColor="@color/secondary_666666_808080"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_distance"
+                app:layout_constraintBottom_toBottomOf="@id/tv_distance"
+                app:layout_constraintStart_toEndOf="@id/tv_distance" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_mode"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:tint="@color/color_on_secondary"
+                app:layout_constraintBottom_toTopOf="@id/tv_distance_unit"
+                app:layout_constraintEnd_toEndOf="@id/tv_distance_unit"
+                app:tint="@color/black_white"
+                app:layout_constraintStart_toStartOf="@id/tv_distance_unit"
+                app:srcCompat="@drawable/ic_outdoor_run_white_24dp" />
+
+            <com.lepu.health.widget.LastSpacingTextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_on_secondary"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="italic|bold"
+                app:layout_constraintStart_toStartOf="@id/tv_distance"
+                app:layout_constraintTop_toBottomOf="@id/tv_distance"
+                tools:text="00:17:49" />
+
+            <TextView
+                android:id="@+id/tv_kcal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:text="@string/kcal"
+                android:textColor="@color/secondary_666666_808080"
+                android:textSize="@dimen/sp_10"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_time"
+                app:layout_constraintBottom_toBottomOf="@id/tv_time"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.lepu.health.widget.LastSpacingTextView
+                android:id="@+id/tv_kcal_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_2"
+                android:textColor="@color/color_on_secondary"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="italic|bold"
+                android:paddingEnd="@dimen/dp_6"
+                android:paddingStart="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_time"
+                app:layout_constraintEnd_toStartOf="@id/tv_kcal"
+                tools:text="56" />
+
+            <TextView
+                android:id="@+id/tv_stride"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:text="@string/steps_min"
+                android:textColor="@color/secondary_666666_808080"
+                android:textSize="@dimen/sp_10"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_time"
+                app:layout_constraintBottom_toBottomOf="@id/tv_time"
+                app:layout_constraintEnd_toStartOf="@id/tv_kcal_value"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/tv_stride_value" />
+
+            <com.lepu.health.widget.LastSpacingTextView
+                android:id="@+id/tv_stride_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_2"
+                android:textColor="@color/color_on_secondary"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="italic|bold"
+                android:paddingEnd="@dimen/dp_6"
+                android:paddingStart="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_time"
+                app:layout_constraintEnd_toStartOf="@id/tv_stride"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/tv_time"
+                tools:text="95" />
+
+
+            <TextView
+                android:id="@+id/tv_save"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_36"
+                android:gravity="center"
+                android:background="@drawable/bg_orange_radius_36dp"
+                android:paddingStart="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_4"
+                android:paddingEnd="@dimen/dp_16"
+                android:paddingBottom="@dimen/dp_4"
+                android:text="@string/save_and_share_video"
+                android:textColor="@color/color_on_primary"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_time" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/dp_20"
+                app:layout_constraintTop_toBottomOf="@id/tv_save" />
+
+            <com.lepu.health.widget.Polyline2Chart
+                android:id="@+id/cpc"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_distance" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ctl_hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_4"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:background="@drawable/ic_exercise_sr_bg"
+            android:padding="@dimen/dp_4"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/ctl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ctl">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_hr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/fc355c_fc3159"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_health_monitoring_16dp" />
+
+            <TextView
+                android:id="@+id/tv_hr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:textColor="@color/a9a9a9_191919"
+                android:textSize="@dimen/sp_10"
+                app:layout_constraintBottom_toBottomOf="@id/iv_hr"
+                app:layout_constraintStart_toEndOf="@id/iv_hr"
+                app:layout_constraintTop_toTopOf="@id/iv_hr"
+                tools:text="114 次/分钟" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ctl_cadence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_4"
+            android:layout_marginBottom="@dimen/dp_4"
+            android:background="@drawable/ic_exercise_sr_bg"
+            android:padding="@dimen/dp_4"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/ctl_hr"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_cadence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:tint="@color/orange"
+                app:srcCompat="@drawable/ic_step_white_24dp" />
+
+            <TextView
+                android:id="@+id/tv_cadence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:textColor="@color/a9a9a9_191919"
+                android:textSize="@dimen/sp_10"
+                app:layout_constraintBottom_toBottomOf="@id/iv_cadence"
+                app:layout_constraintStart_toEndOf="@id/iv_cadence"
+                app:layout_constraintTop_toTopOf="@id/iv_cadence"
+                tools:text="120 步/分钟" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ctl_pace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_4"
+            android:layout_marginBottom="@dimen/dp_4"
+            android:background="@drawable/ic_exercise_sr_bg"
+            android:padding="@dimen/dp_4"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/ctl_cadence"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_pace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:tint="@color/green"
+                app:srcCompat="@drawable/ic_pace_green_24dp" />
+
+            <TextView
+                android:id="@+id/tv_pace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:textColor="@color/a9a9a9_191919"
+                android:textSize="@dimen/sp_10"
+                app:layout_constraintBottom_toBottomOf="@id/iv_pace"
+                app:layout_constraintStart_toEndOf="@id/iv_pace"
+                app:layout_constraintTop_toTopOf="@id/iv_pace"
+                tools:text="120 步/分钟" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/bg_circle_translucent_black_40"
+        android:padding="@dimen/dp_6"
+        android:tint="@color/color_on_primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_left_black_24dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_layer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:background="@drawable/bg_circle_translucent_black_40"
+        android:padding="@dimen/dp_6"
+        android:tint="@color/color_on_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_layer1_black_24dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_start"
+        android:layout_width="@dimen/dp_64"
+        android:layout_height="@dimen/dp_64"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/bg_circle_translucent_black_40"
+        android:padding="@dimen/dp_10"
+        android:tint="@color/color_on_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_play_arrow_24" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_person"
+        android:layout_width="@dimen/dp_36"
+        android:layout_height="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_64"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_person_gray_24dp" />
+
+    <TextView
+        android:id="@+id/tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_2"
+        android:gravity="center"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_person"
+        tools:text="185******22" />
+
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_2"
+        android:gravity="center"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_nickname"
+        tools:text="2020/9/4 UMIDIGI Urun" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
