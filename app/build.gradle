@@ -43,6 +43,28 @@ android {
         }
     }
 
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            def buildTypeName = ""
+            def createTime = new Date().format("yyyyMMddHHmmss", TimeZone.getTimeZone("GMT+08:00"))
+            if (outputFile != null) {
+                if (outputFile.name.contains('release')) {
+                    buildTypeName += "release"
+                } else if (outputFile.name.contains('debug')) {
+                    buildTypeName += "debug"
+                }
+            }
+            def fileName = "health" +
+                    "_V${variant.versionName}" +
+                    "-${variant.versionCode}" +
+                    "-${buildTypeName}" +
+                    "-${createTime}" +
+                    ".apk"
+            outputFileName = fileName
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
