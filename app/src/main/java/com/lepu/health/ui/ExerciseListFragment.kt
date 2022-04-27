@@ -84,12 +84,17 @@ class ExerciseListFragment : BaseFragment(R.layout.fragment_exercise_list) {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        findNavController().navigateUp()
+    }
+
     override fun initView(savedInstanceState: Bundle?) {
         immersionBar {
             navigationBarColor(android.R.color.transparent)
         }
         ImmersionBar.setTitleBar(this, binding.toolbar)
-        binding.ivBack.click { findNavController().navigateUp() }
+        binding.ivBack.click { onBackPressed() }
         model.getTraceById()
 
         binding.spinner.click {

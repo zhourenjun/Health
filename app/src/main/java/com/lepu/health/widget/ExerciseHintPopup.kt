@@ -17,7 +17,7 @@ class ExerciseHintPopup(context: Context) : BottomPopupView(context) {
 
     override fun onCreate() {
         super.onCreate()
-        binding = PopupExerciseHintBinding.bind(this)
+        binding = PopupExerciseHintBinding.bind(popupImplView)
         binding.tvC.click {
             dismissWith {
                 onSelectListener?.invoke(false)

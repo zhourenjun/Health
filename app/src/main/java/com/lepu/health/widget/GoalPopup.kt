@@ -72,7 +72,7 @@ class GoalPopup(context: Context) : BottomPopupView(context) {
 
     override fun onCreate() {
         super.onCreate()
-        binding = PopupFitnessGoalBinding.bind(this)
+        binding = PopupFitnessGoalBinding.bind(popupImplView)
         binding.p1.setData(s0)
             .setOnSelectListener {
                 binding.p2.setVisible(it > 0)

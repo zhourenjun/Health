@@ -1,10 +1,12 @@
 package com.lepu.health.ui
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.os.PowerManager
 import android.renderscript.Int2
 import android.view.View
 import androidx.navigation.fragment.findNavController
@@ -69,9 +71,8 @@ class AMapRunningFragment : BaseFragment(R.layout.fragment_amap_running), TickLi
     private var mGpsStatus: GpsStatus? = null
     private var fcmId: String by Preference(Constant.FCM_ID, "")
     private var distance = 0f
-    private lateinit var gossip: Gossip
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "InvalidWakeLockTag")
     override fun initData() {
         receive<MutableList<Float>>(false, "distanceInMeters") {
             distance = it.sum()
@@ -112,12 +113,18 @@ class AMapRunningFragment : BaseFragment(R.layout.fragment_amap_running), TickLi
                 }
                 LogUtil.e("talk  $talk")
                 if (talk && isReminder) {
-                    gossip.talk(
+                    val pm = activity?.getSystemService(Context.POWER_SERVICE) as PowerManager
+                    val wl =
+                        pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "MyWakelock")
+                    Gossip(requireContext()).talk(
                         "${getString(R.string.distance)} ${binding.tvDistance.text} ${getString(if (units == 0) R.string.km else R.string.mile)} ${
                             getString(
                                 R.string.time3
                             )
-                        } ${timeInSeconds / 60} ${getString(R.string.min)}"
+                        } ${timeInSeconds / 60} ${getString(R.string.min)}",
+                        onStart = suspend { wl.acquire(2000) },
+                        onDone = suspend { wl.release() },
+                        onError = suspend { wl.release() }
                     )
                     index += 1
                 }
@@ -127,7 +134,6 @@ class AMapRunningFragment : BaseFragment(R.layout.fragment_amap_running), TickLi
 
     @SuppressLint("UseCompatLoadingForDrawables", "SetTextI18n")
     override fun initView(savedInstanceState: Bundle?) {
-        gossip = Gossip(requireContext())
         mGpsStatus = GpsStatus(App.context)
         mGpsStatus?.let {
             if (!it.isLogging()) it.start(this)
@@ -398,13 +404,6 @@ class AMapRunningFragment : BaseFragment(R.layout.fragment_amap_running), TickLi
 
     override fun onDestroy() {
         super.onDestroy()
-        binding.mapView.onDestroy()
-        gossip.stop()
-        gossip.shutdown()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
         if (isRunning) {
             sendCommandToService(ACTION_STOP_SERVICE)
         }

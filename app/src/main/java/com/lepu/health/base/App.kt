@@ -1,6 +1,7 @@
 package com.lepu.health.base
 
 import android.app.Application
+import com.tencent.bugly.Bugly
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import kotlin.properties.Delegates
@@ -27,6 +28,7 @@ class App : Application() {
             androidContext(context)
             modules(appModule)
         }
+        Bugly.init(applicationContext, "1dc31cf615", false)
     }
 }
 

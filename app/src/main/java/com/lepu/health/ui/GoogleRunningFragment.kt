@@ -77,16 +77,6 @@ class GoogleRunningFragment : BaseFragment(R.layout.fragment_google_running), Ti
 
     @SuppressLint("SetTextI18n", "InvalidWakeLockTag")
     override fun initData() {
-        mGpsStatus = GpsStatus(App.context)
-
-        mGpsStatus?.let {
-            if (!it.isLogging()) it.start(this)
-        }
-        mode = arguments?.getInt("mode") ?: 0
-        val (position, navbarHeight) = DisplayAssist.getNavigationBarSize(requireContext())
-        this.navbarDim = navbarHeight
-        this.navbarPosition = position
-
         receive<MutableList<Float>>(false, "distanceInMeters"){
             distance = it.sum().toDouble()
             val temp = (if (units == 0) distance else distance * 0.62).toInt()
@@ -145,6 +135,14 @@ class GoogleRunningFragment : BaseFragment(R.layout.fragment_google_running), Ti
     }
     @SuppressLint("MissingPermission", "UseCompatLoadingForDrawables", "SetTextI18n")
     override fun initView(savedInstanceState: Bundle?) {
+        mGpsStatus = GpsStatus(App.context)
+        mGpsStatus?.let {
+            if (!it.isLogging()) it.start(this)
+        }
+        val (position, navbarHeight) = DisplayAssist.getNavigationBarSize(requireContext())
+        this.navbarDim = navbarHeight
+        this.navbarPosition = position
+        mode = arguments?.getInt("mode") ?: 0
         try {
             MapsInitializer.initialize(App.context) // IBitmapDescriptorFactory is not initialized
         } catch (e: GooglePlayServicesNotAvailableException) {
@@ -168,6 +166,12 @@ class GoogleRunningFragment : BaseFragment(R.layout.fragment_google_running), Ti
             googleMap.uiSettings.isMyLocationButtonEnabled = false
             googleMap.uiSettings.isZoomControlsEnabled = false
             googleMap.uiSettings.isTiltGesturesEnabled = false
+
+           arguments?.getParcelable<com.amap.api.maps.model.LatLng>("LatLng")?.let {
+               val latLng = LatLng(it.latitude, it.longitude)
+               googleMap.addMarker(mMarkerOptions.position(latLng))
+               googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
+           }
         }
         timeStarted = System.currentTimeMillis()
         sendCommandToService(ACTION_START_OR_RESUME_SERVICE)

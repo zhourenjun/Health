@@ -12,7 +12,6 @@
         android:paddingTop="@dimen/dp_16"
         android:paddingEnd="@dimen/dp_20"
         android:paddingBottom="@dimen/dp_16"
-        android:text="@string/europe"
         android:textColor="@color/_99000000_888888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

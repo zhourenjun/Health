@@ -24,7 +24,7 @@ class ExerciseModePopup(context: Context) : AttachPopupView(context) {
 
     override fun onCreate() {
         super.onCreate()
-        binding = PopupExerciseModeBinding.bind(this)
+        binding = PopupExerciseModeBinding.bind(popupImplView)
         binding.rv.adapter = modeAdapter.apply {
             setOnItemClickListener { _, _, position ->
                 dismissWith {

@@ -69,10 +69,15 @@ class ExerciseRouteFragment : BaseFragment(R.layout.fragment_exercise_route), Co
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        findNavController().navigateUp()
+    }
+
     @SuppressLint("SetTextI18n")
     override fun initView(savedInstanceState: Bundle?) {
         ImmersionBar.setTitleBar(this, binding.toolbar)
-        binding.ivBack.click { findNavController().navigateUp() }
+        binding.ivBack.click { onBackPressed() }
         mParams = LinearLayout.LayoutParams(-1, -1)
         arguments?.getParcelable<Trace>("trace")?.let { trace ->
             send(false, "share")

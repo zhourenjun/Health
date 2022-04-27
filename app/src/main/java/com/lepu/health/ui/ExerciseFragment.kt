@@ -2,7 +2,6 @@
 
 package com.lepu.health.ui
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.*
@@ -163,31 +162,16 @@ class ExerciseFragment : BaseFragment(R.layout.fragment_exercise), TickListener 
         mLocationClient?.startLocation()
 
         binding.ctlStart.click {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                permissionX(listOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION)) { allGranted, _, _ ->
-                    if (allGranted) {
-                        goto()
-                    }
-                }
-            } else {
-                goto()
+            val mode = when (position) {
+                0 -> 1
+                1 -> 0
+                else -> 3
             }
-        }
-    }
-
-    private fun goto() {
-        val mode = when (position) {
-            0 -> 1
-            1 -> 0
-            else -> 3
-        }
-        if (map == 4 || (mIsAMapDisplay && map == 1)) {
+            val bundle = bundleOf("LatLng" to LatLng(latitude, longitude), "mode" to mode)
             findNavController().navigate(
-                R.id.aMapRunningFragment,
-                bundleOf("LatLng" to LatLng(latitude, longitude), "mode" to mode)
+                if (map == 4 || (mIsAMapDisplay && map == 1)) R.id.aMapRunningFragment else R.id.googleRunningFragment,
+                bundle
             )
-        } else {
-            findNavController().navigate(R.id.googleRunningFragment, bundleOf("mode" to mode))
         }
     }
 

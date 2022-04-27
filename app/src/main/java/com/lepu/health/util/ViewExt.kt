@@ -26,6 +26,7 @@ import androidx.appcompat.widget.AppCompatSeekBar
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -354,6 +355,31 @@ fun showSingleChoiceDialog(
         }.create().show()
 }
 
+fun FragmentActivity.permissionX(
+    permissions: List<String>,
+    callback: (allGranted: Boolean, grantedList: List<String>, deniedList: List<String>) -> Unit
+) {
+    PermissionX.init(this)
+        .permissions(permissions)
+        .setDialogTintColor(Color.parseColor("#008577"), Color.parseColor("#83e8dd"))
+        .onExplainRequestReason { scope, deniedList ->
+            scope.showRequestReasonDialog(
+                deniedList,
+                getString(R.string.hint),
+                getString(R.string.sure),
+                getString(R.string.cancel)
+            )
+        }.onForwardToSettings { scope, deniedList ->
+            scope.showForwardToSettingsDialog(
+                deniedList,
+                getString(R.string.permission),
+                getString(R.string.sure),
+                getString(R.string.cancel)
+            )
+        }.request { allGranted, grantedList, deniedList ->
+            callback.invoke(allGranted, grantedList, deniedList)
+        }
+}
 
 fun Fragment.permissionX(
     permissions: List<String>,

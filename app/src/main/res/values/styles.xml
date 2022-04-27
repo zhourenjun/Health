@@ -26,5 +26,9 @@
         <item name="textAllCaps">false</item>
     </style>
 
+    <style name="MySwitchTheme">
+        <item name="colorControlActivated">#fb6522</item>
+        <item name="colorSwitchThumbNormal">#FFF1F1F1</item>
+    </style>
 
 </resources>

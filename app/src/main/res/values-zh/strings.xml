@@ -97,7 +97,12 @@
 
     <string name="distance_mile_goal_hint">可输入1–100英里</string>
     <string name="input_out_range">输入值超出范围</string>
-    <string name="europe">欧洲</string>
     <string name="all">全部运动</string>
     <string name="no_data">无数据</string>
+
+    <string name="amap_maps_key" templateMergeStrategy="preserve" translatable="false">b468d105dc79c1cfcf92acc3f57f8033</string>
+    <string name="auto">自动</string>
+    <string name="map">地图引擎</string>
+    <string name="amap">高德</string>
+    <string name="google_map">Google Map</string>
 </resources>

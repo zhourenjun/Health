@@ -27,7 +27,7 @@ class CustomPopup(context: Context) : BottomPopupView(context) {
     @SuppressLint("SetTextI18n")
     override fun onCreate() {
         super.onCreate()
-        binding = PopupCustomBinding.bind(this)
+        binding = PopupCustomBinding.bind(popupImplView)
         if (goalValue > 0) {
             binding.et.hint = "$goalValue"
         }

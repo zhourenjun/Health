@@ -97,7 +97,12 @@
     <string name="distance_mile_goal_hint">Enter between 1–100 mile</string>
     <string name="input_out_range">Input value is out of range</string>
 
-    <string name="europe">Europe</string>
     <string name="all">All</string>
     <string name="no_data">No data</string>
+
+    <string name="amap_maps_key" templateMergeStrategy="preserve" translatable="false">b468d105dc79c1cfcf92acc3f57f8033</string>
+    <string name="auto">Auto</string>
+    <string name="map">Map</string>
+    <string name="amap">AMap</string>
+    <string name="google_map">Google Map</string>
 </resources>

@@ -214,10 +214,10 @@ class GoogleMapService : LifecycleService() {
     }
 
     private val locationCallback = object : LocationCallback() {
-        override fun onLocationResult(result: LocationResult?) {
+        override fun onLocationResult(result: LocationResult) {
             super.onLocationResult(result)
             if (isTracking.value!!) {
-                result?.lastLocation?.let {
+                result.lastLocation.let {
                     pathPoints.value?.apply {
                         if (it.speed > 0) {
                             add(

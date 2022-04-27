@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+
 }
 
 android {
@@ -17,12 +19,30 @@ android {
 
     }
 
-    buildTypes {
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            keyAlias KEYALIAS
+            keyPassword KEYALIASPWD
+            storeFile file(STOREFILE)
+            storePassword STOREPWD
         }
     }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -64,10 +84,9 @@ dependencies {
     implementation("io.coil-kt:coil:$coil_version")
     
     // Google Maps Location Services
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.maps.android:android-maps-utils:1.2.1'
-
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
     //3D地图so及jar
     implementation 'com.amap.api:3dmap:7.6.0'
     //定位功能
@@ -83,11 +102,12 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
     implementation 'me.jessyan:autosize:1.2.1'
     implementation 'com.google.code.gson:gson:2.8.9'
-    implementation 'com.permissionx.guolindev:permissionx:1.4.0'
+    implementation 'com.guolindev.permissionx:permissionx:1.6.3'
     implementation 'com.lxj:xpopup:2.2.12'
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
     implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
     implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
     implementation 'com.github.MackHartley:RoundedProgressBar:3.0.0'
     implementation 'net.danlew:android.joda:2.10.14'
+    implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
 }

@@ -43,7 +43,7 @@ class ReminderPopup(context: Context) : BottomPopupView(context) {
 
     override fun onCreate() {
         super.onCreate()
-        binding = PopupFitnessGoalBinding.bind(this)
+        binding = PopupFitnessGoalBinding.bind(popupImplView)
         binding.tv.text = context.getString(R.string.reminders_interval)
         binding.p1.setData(s0)
             .setSelected(index1)
