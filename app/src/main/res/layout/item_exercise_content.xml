@@ -51,7 +51,7 @@
         app:layout_constraintBottom_toBottomOf="@id/tvDistance_unit"
         app:layout_constraintStart_toEndOf="@id/tvDistance_unit"
         app:layout_constraintTop_toTopOf="@id/tvDistance_unit"
-        app:srcCompat="@drawable/ic_watch_grey_16dp" />
+        app:srcCompat="@drawable/ic_phone_grey_16dp" />
 
 
     <androidx.appcompat.widget.AppCompatImageView

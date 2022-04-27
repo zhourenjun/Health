@@ -148,7 +148,7 @@ class ExerciseListFragment : BaseFragment(R.layout.fragment_exercise_list) {
 
         if (data.isNotEmpty()) {
             //当前模式所有数据
-            val current = if (pos == 0) data else data.filter { it.mode == pos - 1 }
+            val current = if (pos == 0) data else data.filter { it.mode == pos }
             if (current.isEmpty()) {
                 footerAdapter.updateFooterState(FooterAdapter.STATE_NO_MORE)
                 return
@@ -168,7 +168,10 @@ class ExerciseListFragment : BaseFragment(R.layout.fragment_exercise_list) {
                         ItemsExpandableAdapter(
                             ItemsGroup((startTime * 1000L).toDateString("yyyy/MM"), temp)
                         ).setOnItemClickListener { trace ->
-                            findNavController().navigate(R.id.exerciseRouteFragment, bundleOf("trace" to trace))
+                            findNavController().navigate(
+                                R.id.exerciseRouteFragment,
+                                bundleOf("trace" to trace)
+                            )
                         })
                 }
             }
@@ -298,52 +301,24 @@ class ItemsExpandableAdapter(private val itemsGroup: ItemsGroup) :
             ) {
                 binding.iv.setImageResource(
                     when (trace.mode) {
-                        0 -> R.drawable.ic_walk_white_24dp
                         1 -> R.drawable.ic_outdoor_run_white_24dp
-                        2 -> R.drawable.ic_run_in_24dp
-                        3 -> R.drawable.ic_ride_white_24dp
-                        4 -> R.drawable.ic_ride_indoor_24dp
-                        5 -> R.drawable.ic_onfoot_white_24dp
-                        6 -> R.drawable.ic_mountaineering_white_24dp
-                        7 -> R.drawable.ic_badminton_white
-                        8 -> R.drawable.ic_football_white_24dp
-                        9 -> R.drawable.ic_basketball_white_24dp
-                        10 -> R.drawable.ic_tennis_white_24dp
-                        11 -> R.drawable.ic_dancing_white_24dp
-                        12 -> R.drawable.ic_yoga_white_24dp
-                        13 -> R.drawable.ic_freetraining_white_24dp
-                        14 -> R.drawable.ic_trail_running_white_24dp
-                        15 -> R.drawable.ic_swimming_white_24dp
-                        16 -> R.drawable.ic_inner_walk_white_24dp
-                        17 -> R.drawable.ic_rower_white_24dp
-                        18 -> R.drawable.ic_elliptical_white_24dp
-                        else -> R.drawable.ic_open_swimming_white_24dp
+                        2 -> R.drawable.ic_walk_white_24dp
+                        else -> R.drawable.ic_ride_white_24dp
                     }
                 )
-                binding.ivDevice.setImageResource(if (trace.maxOxygenUptake > 0) R.drawable.ic_watch_grey_16dp else R.drawable.ic_phone_grey_16dp)
-                if (trace.kmInfoList.isEmpty() && trace.distance == 0) {
-                    binding.tvDistance.text = "${trace.calorie / 1000}"
-                    binding.tvDistanceUnit.text =  binding.tvDistance.context.getString(R.string.kcal)
-                    binding.ivPace.setImageResource(R.drawable.ic_health_monitoring_16dp)
-                    binding.tvPace.text = "${trace.averageHr}"
-                    binding.tvPaceUnit.text =  binding.tvPace.context.getString(R.string.bpm)
+                binding.tvDistance.text = String.format(
+                    "%.2f",
+                    if (units == 0) trace.distance / 1000f else trace.distance * 0.62 / 1000f
+                )
+                binding.tvDistanceUnit.text =
+                    binding.tvDistance.context.getString(if (units == 0) R.string.km else R.string.mile)
 
-                } else {
-                    binding.tvDistance.text = String.format(
-                        "%.2f",
-                        if (units == 0) trace.distance / 1000f else trace.distance * 0.62 / 1000f
-                    )
-                    binding.tvDistanceUnit.text =
-                        binding.tvDistance.context.getString(if (units == 0) R.string.km else R.string.mile)
-                    binding.ivPace.setImageResource(R.drawable.ic_pace_green_24dp)
-
-                    val sec =
-                        trace.accomplishTime * 1000 / (if (units == 0) trace.distance else trace.distance * 0.62).toInt()
-                    binding.tvPace.text =
-                        "${sec / 60}'${sec % 60}''"
-                    binding.tvPaceUnit.text =
-                        binding.tvPace.context.getString(if (units == 0) R.string.km2 else R.string.mile2)
-                }
+                val sec =
+                    trace.accomplishTime * 1000 / (if (units == 0) trace.distance else trace.distance * 0.62).toInt()
+                binding.tvPace.text =
+                    "${sec / 60}'${sec % 60}''"
+                binding.tvPaceUnit.text =
+                    binding.tvPace.context.getString(if (units == 0) R.string.km2 else R.string.mile2)
                 binding.tvTime.text =
                     CommonUtil.getFormattedStopWatchTIme(trace.accomplishTime * 1000L, false)
                 binding.tvData.text = (trace.date * 1000L).toDateString("MM/dd")

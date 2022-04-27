@@ -20,14 +20,6 @@ class Repository(private val db: AppDatabase) {
         db.traceDao().insertTraces(traces)
     }
 
-    suspend fun getLastTraceById() =
-        db.traceDao().getLastTraceById(userId)
-
-    suspend fun getTraceById(id: Long = userId) =
-        db.traceDao().getTraceById(id)
-
-    suspend fun deleteTraceById(id: Long) = db.traceDao().deleteTraceById(id)
-
     suspend fun getModeTraceById(mode: Int, from: Long, to: Long) =
         db.traceDao()
             .getModeTraceById(mode, from, to, userId)
@@ -37,8 +29,5 @@ class Repository(private val db: AppDatabase) {
 
     suspend fun getTraceById() =
         db.traceDao().getTraceById(userId)
-
-    suspend fun getTraceByDate(date: Long, mac: String = currentWatch) =
-        db.traceDao().getTraceByDate(date, userId, mac)
 
 }

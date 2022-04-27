@@ -77,7 +77,7 @@ class GoogleRunningFragment : BaseFragment(R.layout.fragment_google_running), Ti
 
     @SuppressLint("SetTextI18n", "InvalidWakeLockTag")
     override fun initData() {
-        receive<MutableList<Float>>(false, "distanceInMeters"){
+        receive<MutableList<Float>>(false, "distanceInMeters") {
             distance = it.sum().toDouble()
             val temp = (if (units == 0) distance else distance * 0.62).toInt()
             binding.tvDistance.text = String.format("%.2f", temp / 1000f)
@@ -104,7 +104,7 @@ class GoogleRunningFragment : BaseFragment(R.layout.fragment_google_running), Ti
             }
         }
 
-        receive<Long>(false, "timeRunInSeconds"){
+        receive<Long>(false, "timeRunInSeconds") {
             timeInSeconds = it
             val formattedTime = getFormattedStopWatchTIme(it * 1000, false)
             binding.tvTimeValue.text = formattedTime
@@ -133,6 +133,7 @@ class GoogleRunningFragment : BaseFragment(R.layout.fragment_google_running), Ti
         }
 
     }
+
     @SuppressLint("MissingPermission", "UseCompatLoadingForDrawables", "SetTextI18n")
     override fun initView(savedInstanceState: Bundle?) {
         mGpsStatus = GpsStatus(App.context)
@@ -167,11 +168,11 @@ class GoogleRunningFragment : BaseFragment(R.layout.fragment_google_running), Ti
             googleMap.uiSettings.isZoomControlsEnabled = false
             googleMap.uiSettings.isTiltGesturesEnabled = false
 
-           arguments?.getParcelable<com.amap.api.maps.model.LatLng>("LatLng")?.let {
-               val latLng = LatLng(it.latitude, it.longitude)
-               googleMap.addMarker(mMarkerOptions.position(latLng))
-               googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
-           }
+            arguments?.getParcelable<com.amap.api.maps.model.LatLng>("LatLng")?.let {
+                val latLng = LatLng(it.latitude, it.longitude)
+                googleMap.addMarker(mMarkerOptions.position(latLng))
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
+            }
         }
         timeStarted = System.currentTimeMillis()
         sendCommandToService(ACTION_START_OR_RESUME_SERVICE)
@@ -298,42 +299,22 @@ class GoogleRunningFragment : BaseFragment(R.layout.fragment_google_running), Ti
                 val trace = Trace(
                     fcmId,
                     arguments?.getInt("mode") ?: 0,
-                    0,
-                    0,
-                    0,
-                    0,
                     (binding.tvKcalValue.text.toString().toFloat() * 1000).toInt(),
                     paces.maxOrNull() ?: 0,
                     timeStarted / 1000,
                     timeInSeconds.toInt(),
-                    0,
                     distance.toInt(),
-                    0,
-                    0,
-                    0e10,
-                    0e10,
-                    0e10,
-                    0e10,
                     pathPoint[0].longitudeEW,
                     pathPoint[0].latitudeNS,
                     pathPoint[pathPoint.size - 1].longitudeEW,
                     pathPoint[pathPoint.size - 1].latitudeNS,
-                    0,
-                    listOf(),
-                    0,
-                    0,
                     paces.maxOrNull() ?: 0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    listOf(),
                     pathPoint
                 )
                 model.insertTraces(listOf(trace))
                 send(trace, "phone_trace")
                 send(pathPoint.last(), "end_location")
-               findNavController().navigateUp()
+                findNavController().navigateUp()
             }
         }
 
@@ -422,6 +403,7 @@ class GoogleRunningFragment : BaseFragment(R.layout.fragment_google_running), Ti
             sendCommandToService(ACTION_STOP_SERVICE)
         }
     }
+
     override fun onBackPressed() {
         super.onBackPressed()
         if (isRunning) {
@@ -435,13 +417,15 @@ class GoogleRunningFragment : BaseFragment(R.layout.fragment_google_running), Ti
         mGpsStatus?.let {
             if (it.isEnabled() && it.isLogging()) {
                 if (it.isFixed) {
-                    binding.tvGps.text = getString(
-                        when {
-                            it.satellitesFixed > 7 -> R.string.GPS_level_good
-                            it.satellitesFixed > 4 -> R.string.GPS_level_acceptable
-                            else -> R.string.GPS_level_poor
-                        }
-                    )
+                    binding.tvGps.delayOnLifecycle{
+                        binding.tvGps.text = getString(
+                            when {
+                                it.satellitesFixed > 7 -> R.string.GPS_level_good
+                                it.satellitesFixed > 4 -> R.string.GPS_level_acceptable
+                                else -> R.string.GPS_level_poor
+                            }
+                        )
+                    }
                 }
             }
         }

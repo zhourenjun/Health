@@ -105,35 +105,17 @@ class GoogleMapScreenRecorderFragment : BaseFragment(R.layout.fragment_google_sr
             binding.tvData.text =
                 "${day.monthOfYear().asShortText} ${day.dayOfMonth().asText}, ${day.year}  ${day.hourOfDay}:${if (min < 10) "0$min" else min}"
             binding.ivMode.setImageResource(
-                when (it.mode) {
-                    0 -> R.drawable.ic_walk_white_24dp
+                when (trace.mode) {
                     1 -> R.drawable.ic_outdoor_run_white_24dp
-                    2 -> R.drawable.ic_run_in_24dp
-                    3 -> R.drawable.ic_ride_white_24dp
-                    4 -> R.drawable.ic_ride_indoor_24dp
-                    5 -> R.drawable.ic_onfoot_white_24dp
-                    6 -> R.drawable.ic_mountaineering_white_24dp
-                    7 -> R.drawable.ic_badminton_white
-                    8 -> R.drawable.ic_football_white_24dp
-                    9 -> R.drawable.ic_basketball_white_24dp
-                    10 -> R.drawable.ic_tennis_white_24dp
-                    11 -> R.drawable.ic_dancing_white_24dp
-                    12 -> R.drawable.ic_yoga_white_24dp
-                    13 -> R.drawable.ic_freetraining_white_24dp
-                    14 -> R.drawable.ic_trail_running_white_24dp
-                    15 -> R.drawable.ic_swimming_white_24dp
-                    16 -> R.drawable.ic_inner_walk_white_24dp
-                    17 -> R.drawable.ic_rower_white_24dp
-                    18 -> R.drawable.ic_elliptical_white_24dp
-                    else -> R.drawable.ic_open_swimming_white_24dp
+                    2 -> R.drawable.ic_walk_white_24dp
+                    else -> R.drawable.ic_ride_white_24dp
                 }
             )
             binding.tvTime.text = CommonUtil.getFormattedStopWatchTIme(it.accomplishTime * 1000L, false)
-            val m =
-                if (it.mode == 2 || it.mode == 4 || it.mode == 15 || it.mode == 16) (if (it.calibrateDistance == 0) it.distance else it.calibrateDistance) else it.distance
+            val m = it.distance
             binding.tvDistance.text = String.format("%.2f", if (units == 0) m / 1000f else m * 0.62 / 1000f)
             binding.tvDistanceUnit.text = getString(if (units == 0) R.string.km else R.string.mile)
-            binding.tvStrideValue.text = "${it.step * 60 / it.accomplishTime}" //平均步频
+            binding.tvStrideValue.text = "0" //平均步频
             binding.tvKcalValue.text = "${it.calorie / 1000}"
 
             val list =
@@ -258,10 +240,6 @@ class GoogleMapScreenRecorderFragment : BaseFragment(R.layout.fragment_google_sr
         binding.mapView.onSaveInstanceState(outState)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        binding.mapView.onDestroy()
-    }
 
     private val cadences = mutableListOf<Float>()
 

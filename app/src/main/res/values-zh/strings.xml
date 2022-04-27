@@ -24,26 +24,9 @@
 
     <string-array name="actionArray">
         <item>全部运动</item>
-        <item>健走</item>
         <item>户外跑步</item>
-        <item>室内跑步</item>
-        <item>户外骑行</item>
-        <item>室内骑行</item>
-        <item>徒步</item>
-        <item>爬山</item>
-        <item>羽毛球</item>
-        <item>足球</item>
-        <item>篮球</item>
-        <item>网球</item>
-        <item>跳舞</item>
-        <item>瑜伽</item>
-        <item>自由训练</item>
-        <item>越野跑步</item>
-        <item>室内游泳</item>
-        <item>室内健走</item>
-        <item>划船机</item>
-        <item>椭圆机</item>
-        <item>开放水域</item>
+        <item>步行</item>
+        <item>骑行</item>
     </string-array>
 
     <string name="walking">步行 (公里)</string>

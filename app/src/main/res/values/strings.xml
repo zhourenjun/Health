@@ -25,26 +25,9 @@
 
     <string-array name="actionArray">
         <item>All</item>
-        <item>Walk</item>
         <item>Run Out</item>
-        <item>Run In</item>
+        <item>Walk</item>
         <item>Ride</item>
-        <item>Ride Indoor</item>
-        <item>OnFoot</item>
-        <item>Mountaineering</item>
-        <item>Badminton</item>
-        <item>Football</item>
-        <item>Basketball</item>
-        <item>Tennis</item>
-        <item>Dancing</item>
-        <item>Yoga</item>
-        <item>FreeTraining</item>
-        <item>TrailRun</item>
-        <item>Swimming</item>
-        <item>WalkIn</item>
-        <item>Rower</item>
-        <item>Elliptical</item>
-        <item>Open water</item>
     </string-array>
 
     <string name="walking">Walking (km)</string>

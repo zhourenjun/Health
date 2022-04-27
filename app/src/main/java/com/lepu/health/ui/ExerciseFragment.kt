@@ -83,12 +83,7 @@ class ExerciseFragment : BaseFragment(R.layout.fragment_exercise), TickListener 
         mGpsStatus = GpsStatus(App.context)
         mGpsStatus?.let { if (!it.isLogging()) it.start(this) }
         setGoal()
-        binding.ivSettings.click {
-            findNavController().navigate(
-                R.id.exerciseSettingFragment,
-                bundleOf("position" to position)
-            )
-        }
+        binding.ivSettings.click { findNavController().navigate(R.id.exerciseSettingFragment) }
 
         binding.ivGoal.click {
             val pop = XPopup.Builder(requireContext())
@@ -102,13 +97,8 @@ class ExerciseFragment : BaseFragment(R.layout.fragment_exercise), TickListener 
 
         binding.ivStatistics.click {
             findNavController().navigate(
-                R.id.exerciseListFragment, bundleOf(
-                    "position" to when (position) {  //string.xml actionArray
-                        0 -> 2
-                        1 -> 1
-                        else -> 4
-                    }
-                )
+                R.id.exerciseListFragment,
+                bundleOf("position" to position + 1)
             )
         }
 
@@ -162,12 +152,7 @@ class ExerciseFragment : BaseFragment(R.layout.fragment_exercise), TickListener 
         mLocationClient?.startLocation()
 
         binding.ctlStart.click {
-            val mode = when (position) {
-                0 -> 1
-                1 -> 0
-                else -> 3
-            }
-            val bundle = bundleOf("LatLng" to LatLng(latitude, longitude), "mode" to mode)
+            val bundle = bundleOf("LatLng" to LatLng(latitude, longitude), "mode" to position + 1)
             findNavController().navigate(
                 if (map == 4 || (mIsAMapDisplay && map == 1)) R.id.aMapRunningFragment else R.id.googleRunningFragment,
                 bundle

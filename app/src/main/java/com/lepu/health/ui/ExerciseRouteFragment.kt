@@ -56,8 +56,6 @@ class ExerciseRouteFragment : BaseFragment(R.layout.fragment_exercise_route), Co
     private lateinit var mGoogleMap: GoogleMap
     private var isRunning = false
     private var isGoogleMap = false
-    private var isMapTypeNormal = true
-    private var isKMShow = true
     private val kmInfoList = mutableListOf<KmInfo>()
     private val aMapPoints = mutableListOf<LatLng>()
     private lateinit var aMapPolyline: AMapPolyline
@@ -81,20 +79,10 @@ class ExerciseRouteFragment : BaseFragment(R.layout.fragment_exercise_route), Co
         mParams = LinearLayout.LayoutParams(-1, -1)
         arguments?.getParcelable<Trace>("trace")?.let { trace ->
             send(false, "share")
-            if (trace.kmInfoList.isEmpty()) {
-                binding.ivKm.setVisible(false)
-            } else {
-                kmInfoList.addAll(trace.kmInfoList)
-                binding.ivKm.setVisible(units == 0)
-            }
             isCycling = trace.mode == 3 || trace.mode == 4
             var isChina = false
             if (trace.realDataList.isNotEmpty()) {
-                isChina = if (trace.averageHr == 0){
-                    !GPSConverterUtils.out_of_china(trace.realDataList[0].longitude, trace.realDataList[0].latitude)
-                }else{
-                    !GPSConverterUtils.out_of_china(trace.tLongitude, trace.tLatitude)
-                }
+                isChina =  !GPSConverterUtils.out_of_china(trace.realDataList[0].longitude, trace.realDataList[0].latitude)
             }
 
             if (map == 1 || (isChina && map == 4)) {
@@ -123,11 +111,8 @@ class ExerciseRouteFragment : BaseFragment(R.layout.fragment_exercise_route), Co
             }
             binding.ivLocation.click { location() }
             binding.ivRestart.click { start() }
-            binding.ivKm.click { showKm() }
-            binding.ivLayer.click { layer() }
             binding.tvKm.text = getString(if (units == 0) R.string.km else R.string.mile)
-            val m =
-                if (trace.mode == 2 || trace.mode == 4 || trace.mode == 15 || trace.mode == 16) (if (trace.calibrateDistance == 0) trace.distance else trace.calibrateDistance) else trace.distance
+            val m = trace.distance
             binding.tvSteps.text = String.format(
                 "%.2f",
                 if (units == 0) m / 1000f else m * 0.62 / 1000f
@@ -479,42 +464,11 @@ class ExerciseRouteFragment : BaseFragment(R.layout.fragment_exercise_route), Co
         }
     }
 
-    private fun layer() {
-        if (!isRunning) {
-            if (isGoogleMap) {
-                mGoogleMap.mapType =
-                    if (isMapTypeNormal) GoogleMap.MAP_TYPE_SATELLITE else GoogleMap.MAP_TYPE_NORMAL
-            } else {
-                mAMap.mapType =
-                    if (isMapTypeNormal) AMap.MAP_TYPE_SATELLITE else AMap.MAP_TYPE_NORMAL
-            }
-            binding.ivLayer.setImageResource(if (isMapTypeNormal) R.drawable.ic_layer2_black_24dp else R.drawable.ic_layer1_black_24dp)
-            isMapTypeNormal = !isMapTypeNormal
-        }
-    }
-
-    private fun showKm() {
-        if (!isRunning) {
-            isKMShow = !isKMShow
-            if (isGoogleMap) {
-                googleKmMarker.forEach { it.isVisible = isKMShow }
-            } else {
-                aMapKmMarker.forEach { it.isVisible = isKMShow }
-            }
-        }
-    }
-
     override fun onResume() {
         super.onResume()
         mAMapView?.onResume()
         mGoogleMapView?.onResume()
     }
-    //截图用
-//    override fun onPause() {
-//        super.onPause()
-//        mAMapView?.onPause()
-//        mGoogleMapView?.onPause()
-//    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)

@@ -294,36 +294,16 @@ class AMapRunningFragment : BaseFragment(R.layout.fragment_amap_running), TickLi
                 val trace = Trace(
                     fcmId,
                     mode,
-                    0,
-                    0,
-                    0,
-                    0,
                     (binding.tvKcalValue.text.toString().toFloat() * 1000).toInt(),
                     paces.minOrNull() ?: 0,
                     timeStarted / 1000,
                     timeInSeconds.toInt(),
-                    0,
                     distance.toInt(),
-                    0,
-                    0,
-                    0e10,
-                    0e10,
-                    0e10,
-                    0e10,
                     pathPoint[0].longitudeEW,
                     pathPoint[0].latitudeNS,
                     pathPoint[pathPoint.size - 1].longitudeEW,
                     pathPoint[pathPoint.size - 1].latitudeNS,
-                    0,
-                    listOf(),
-                    0,
-                    0,
                     paces.maxOrNull() ?: 0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    listOf(),
                     pathPoint
                 )
                 model.insertTraces(listOf(trace))
@@ -422,13 +402,15 @@ class AMapRunningFragment : BaseFragment(R.layout.fragment_amap_running), TickLi
         mGpsStatus?.let {
             if (it.isEnabled() && it.isLogging()) {
                 if (it.isFixed) {
-                    binding.tvGps.text = getString(
-                        when {
-                            it.satellitesFixed > 7 -> R.string.GPS_level_good
-                            it.satellitesFixed > 4 -> R.string.GPS_level_acceptable
-                            else -> R.string.GPS_level_poor
-                        }
-                    )
+                    binding.tvGps.delayOnLifecycle{
+                        binding.tvGps.text = getString(
+                            when {
+                                it.satellitesFixed > 7 -> R.string.GPS_level_good
+                                it.satellitesFixed > 4 -> R.string.GPS_level_acceptable
+                                else -> R.string.GPS_level_poor
+                            }
+                        )
+                    }
                 }
             }
         }

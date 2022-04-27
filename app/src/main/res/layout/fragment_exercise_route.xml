@@ -54,6 +54,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
 
@@ -277,32 +278,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_location"
                 app:srcCompat="@drawable/ic_start_black_24dp" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_km"
-                android:layout_width="@dimen/dp_36"
-                android:layout_height="@dimen/dp_36"
-                android:layout_marginTop="@dimen/dp_4"
-                android:background="@drawable/bg_green_circle_10dp"
-                android:backgroundTint="@color/color_secondary"
-                android:padding="@dimen/dp_10"
-                android:tint="@color/color_on_surface"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_restart"
-                app:srcCompat="@drawable/ic_stat_km" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_layer"
-                android:layout_width="@dimen/dp_36"
-                android:layout_height="@dimen/dp_36"
-                android:layout_marginTop="@dimen/dp_4"
-                android:background="@drawable/bg_green_circle_10dp"
-                android:backgroundTint="@color/color_secondary"
-                android:padding="@dimen/dp_10"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_km"
-                app:srcCompat="@drawable/ic_layer1_black_24dp" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
